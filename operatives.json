@@ -1,0 +1,63 @@
+{
+    "angels of death": {
+        "operatives": {
+            "Assault Intercessor Warrior": {
+                "name": "Assault Intercessor Warrior",
+                "movement": 6,
+                "apl": 3,
+                "group_activation": 1,
+                "defence": 3,
+                "save": 3,
+                "wounds": 14,
+                "weapons": {
+                    "Heavy Bolt Pistol": {
+                        "name": "Heavy Bolt Pistol",
+                        "attacks": 4,
+                        "bs": 3,
+                        "normal_damage": 3,
+                        "crit_damage": 4,
+                        "special_rules": ["Piercing Crits 1"]
+                    }
+                }
+            },
+            "Intercessor Warrior": {
+                "name": "Intercessor Warrior",
+                "movement": 6,
+                "apl": 3,
+                "group_activation": 1,
+                "defence": 3,
+                "save": 3,
+                "wounds": 14,
+                "weapons": {
+                    "Bolt Rifle": {
+                        "name": "Bolt Rifle",
+                        "attacks": 4,
+                        "bs": 3,
+                        "normal_damage": 3,
+                        "crit_damage": 4,
+                        "special_rules": ["Piercing Crits 1"]
+                    }
+                }
+            },
+            "Assault Intercessor Sergeant": {
+                "name": "Assault Intercessor Sergeant",
+                "movement": 6,
+                "apl": 3,
+                "group_activation": 1,
+                "defence": 3,
+                "save": 3,
+                "wounds": 14,
+                "weapons": {
+                    "Hand Flamer": {
+                        "name": "Hand Flamer",
+                        "attacks": 4,
+                        "bs": 2,
+                        "normal_damage": 3,
+                        "crit_damage": 3,
+                        "special_rules": ["Saturate"]
+                    }
+                }
+            }
+        }
+    }
+}
