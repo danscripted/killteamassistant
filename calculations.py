@@ -1,10 +1,31 @@
 import json
 import random
+import secrets
 
 data = json.load(open("operatives.json", encoding="utf-8"))
 team_name = list(data.keys())[0]
 # Get the operatives sub-dictionary
 operatives = data[team_name]["operatives"]
+
+def operative_menu():
+    print(f"Angels of Death - Kill Team Assistant")
+    print(f"======================================")
+    
+    for index, name in enumerate(operatives, start=1):
+        print(f"{index}. {name}")
+    selection = input("Select an operative:")
+    operatives_list = list(operatives.keys())
+    chosen = operatives_list[int(selection) - 1]
+
+    print(f"You have selected {chosen}")
+    
+
+    for index, name in enumerate(operatives[chosen]["weapons"], start=1):
+        print(f"{index}. {operatives[chosen]["weapons"]}")
+    weapons_list = list
+    selection_weapon = input("Select a weapon:")
+
+operative_menu()
 
 def display_operative(operative):
      print(f"{operative['name']}")
@@ -34,6 +55,8 @@ display_operative(operatives["Assault Intercessor Sergeant"])
 #     print (f"{total_damage}")    
 
 # simulate_attack(operatives["Assault Intercessor Sergeant"]["weapons"]["Hand Flamer"])
+
+
 
 def simulate_attack(weapon):
     print(f"Rolling attack:")
