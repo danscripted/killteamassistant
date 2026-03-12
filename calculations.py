@@ -11,6 +11,7 @@ display_name = team_name.title()
 # Get the operatives sub-dictionary
 operatives = data[team_name]["operatives"]
 
+
 # print(f"Team: {display_name}")
 # print(f"Number of operatives: {len(operatives)}")
 # print("Operative names:", list(operatives.keys()))
@@ -27,16 +28,20 @@ def display_operative(operative):
         print(f"{'  ATK:':>4}{weapon['attacks']} {'BS:':<4}{weapon['bs']} {'DAM:':<4}{weapon['normal_damage']}")
         print(f"  Rules: {', '.join(weapon['special_rules'])}")
         
-     
+display_operative(operatives["Assault Intercessor Warrior"])     
     
-     
+def simulate_attack(weapon):
+    normal_hits = 0
+    crit_hits = 0
+    for i in range(weapon['attacks']):
+       roll = random.randint(1, 6)
+       if roll == 6:
+        crit_hits += 1
+       elif roll >= weapon['bs']:
+            normal_hits += 1
+    print(f"Normal hits: {normal_hits} Crit hits: {crit_hits}")
+    total_damage = (normal_hits * weapon['normal_damage'] + (crit_hits * weapon['crit_damage']))
+    print (f"{total_damage}")    
 
-# print(f"Name: {operative['name']} \nMOV: \n{operative['movement']}")
-#      print(f"================================================")
-#      print(f"Actions APL: {operative['apl']}")
-#      print(f"Defence: {operative['defence']}")
-#      print(f"Save: {operative['save']}")
-#      print(f"Wounds: {operative['wounds']}")
+simulate_attack(operatives["Assault Intercessor Warrior"]["weapons"]["Heavy Bolt Pistol"])
 
-
-display_operative(operatives["Assault Intercessor Sergeant"])
