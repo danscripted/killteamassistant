@@ -16,20 +16,46 @@ def display_operative(operative):
         print(f"{'  ATK:':>4}{weapon['attacks']} {'BS:':<4}{weapon['bs']} {'DAM:':<4}{weapon['normal_damage']}")
         print(f"  Rules: {', '.join(weapon['special_rules'])}")
         
-display_operative(operatives["Assault Intercessor Warrior"])     
+display_operative(operatives["Assault Intercessor Sergeant"])     
     
+# def simulate_attack(weapon):
+#     print(f"Rolling attack:")
+#     print("=========================")
+#     normal_hits = 0
+#     crit_hits = 0
+#     for i in range(weapon['attacks']):
+#        roll = random.randint(1, 6)
+#        if roll == 6:
+#         crit_hits += 1
+#        elif roll >= weapon['bs']:
+#             normal_hits += 1
+#     print(f"Normal hits: {normal_hits} Crit hits: {crit_hits}")
+#     total_damage = (normal_hits * weapon['normal_damage'] + (crit_hits * weapon['crit_damage']))
+#     print (f"{total_damage}")    
+
+# simulate_attack(operatives["Assault Intercessor Sergeant"]["weapons"]["Hand Flamer"])
+
 def simulate_attack(weapon):
-    normal_hits = 0
-    crit_hits = 0
-    for i in range(weapon['attacks']):
-       roll = random.randint(1, 6)
-       if roll == 6:
-        crit_hits += 1
-       elif roll >= weapon['bs']:
-            normal_hits += 1
-    print(f"Normal hits: {normal_hits} Crit hits: {crit_hits}")
-    total_damage = (normal_hits * weapon['normal_damage'] + (crit_hits * weapon['crit_damage']))
-    print (f"{total_damage}")    
+    print(f"Rolling attack:")
+    print("=========================")
+    # setup
+    total_damage_simmed = 0
+    simulations = 1000
+    # dice rolls
+    for sim in range (simulations):
+        normal_hits = 0
+        crit_hits = 0
+        for i in range(weapon['attacks']):
+            roll = random.randint(1, 6)
+            if roll == 6:
+                crit_hits += 1
+            elif roll >= weapon['bs']:
+                normal_hits += 1
+        # Calculations
+        total_damage = (normal_hits * weapon['normal_damage'] + (crit_hits * weapon['crit_damage']))
+        total_damage_simmed += total_damage   
+    
+    average_damage = total_damage_simmed / simulations
+    print(f"Average damage over {simulations} simulations: {average_damage:.2f}")    
 
-simulate_attack(operatives["Assault Intercessor Warrior"]["weapons"]["Heavy Bolt Pistol"])
-
+simulate_attack(operatives["Assault Intercessor Sergeant"]["weapons"]["Hand Flamer"])
